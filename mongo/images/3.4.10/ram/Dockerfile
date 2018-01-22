@@ -5,8 +5,8 @@ FROM circleci/mongo:3.4.10
 
 # mongo images moved entrypoint modify both places but don't fail if one isn't present
 # TODO: Update the entrypoint file deterministically
-RUN sed -i '/exec "$@"/i mkdir \/dev\/shm\/mongo' /entrypoint.sh; \
-      sed -i '/exec "$@"/i mkdir \/dev\/shm\/mongo' /usr/local/bin/docker-entrypoint.sh; \
+RUN sed -i '/exec "$@"/i mkdir \/dev\/shm\/mongo' /entrypoint.sh || \
+      sed -i '/exec "$@"/i mkdir \/dev\/shm\/mongo' /usr/local/bin/docker-entrypoint.sh || \
       true
 
 CMD ["mongod", "--nojournal", "--noprealloc", "--smallfiles", "--dbpath=/dev/shm/mongo"]

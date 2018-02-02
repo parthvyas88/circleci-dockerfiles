@@ -79,8 +79,7 @@ RUN groupadd --gid 3434 circleci \
 # Install composer
 RUN php -r "copy('https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer', 'composer-setup.php');" &&     php composer-setup.php &&     php -r "unlink('composer-setup.php');" &&     mv composer.phar /usr/local/bin/composer
 
-# xdebug is not compatible with 7.2 yet
-RUN if php-config --version | grep -q 7.2; then echo "skipping xdebug, not supported"; else pecl install xdebug && docker-php-ext-enable xdebug; fi
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 # END IMAGE CUSTOMIZATIONS
 
 USER circleci

@@ -1,2 +1,2 @@
 # circleci-dockerfiles
-Dockerfiles for [CircleCI's convenience Docker images](https://hub.docker.com/r/circleci), built via https://github.com/circleci/circleci-images
+Dockerfiles for [CircleCI's convenience Docker images](https://hub.docker.com/r/ccistaging) (staging), built via https://github.com/circleci/circleci-images

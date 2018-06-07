@@ -4,7 +4,7 @@
 FROM circleci/postgres:9.5.13
 
 ENV PGUSER $POSTGRES_USER
-ENV POSTGIS_VERSION 2.4.2
+ENV POSTGIS_VERSION 2.4.4
 
 RUN if which apt-get > /dev/null ; then \
       apt-get update \
